@@ -18,7 +18,7 @@ def get_logger(name: str, level: int = logging.INFO, log_dir: Path = Path("logs"
     logger.addHandler(console_handler)
 
     Path(log_dir).mkdir(exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d")
+    timestamp = datetime.now().strftime("%d-%m-%Y")
     file_handler = logging.FileHandler(
         f"{log_dir}/app_{timestamp}.log", encoding="utf-8"
     )
