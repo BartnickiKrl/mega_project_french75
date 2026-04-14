@@ -1,5 +1,5 @@
 {
-    "name": "Django Blog",
+    "name": "Mega_projekt",
     "build": {
         "dockerfile": "../Dockerfile",
         "context": ".."
@@ -9,11 +9,12 @@
             "extensions": [
                 "ms-python.python",
                 "charliermarsh.ruff",
-                "tamasfe.even-better-toml"
+                "tamasfe.even-better-toml",
+                "codista.vscode-autosave",
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "editor.formatOnSave": true,
+                "editor.formatOnSave": false,
                 "editor.codeActionsOnSave": {
                     "source.fixAll.ruff": "explicit",
                     "source.organizeImports.ruff": "explicit"
@@ -22,5 +23,5 @@
         }
     },
     "remoteUser": "root",
-    "forwardPorts": [8000] // VS Code automatycznie otworzy port w przeglądarce
+    "forwardPorts": [8000] 
 }
