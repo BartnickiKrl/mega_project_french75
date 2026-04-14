@@ -10,7 +10,7 @@
                 "ms-python.python",
                 "charliermarsh.ruff",
                 "tamasfe.even-better-toml",
-                "codista.vscode-autosave",
+                "codista.vscode-autosave"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
