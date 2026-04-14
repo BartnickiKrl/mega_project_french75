@@ -18,7 +18,6 @@ dependencies = [
     "numpy",
     "requests",
     "beautifulsoup4",
-    ""
 ]
 [project.optional-dependencies]
 dev = [

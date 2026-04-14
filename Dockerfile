@@ -15,7 +15,7 @@ WORKDIR /workspaces/mega_projekt
 COPY pyproject.toml .
 
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -e "/workspaces/django_blog[dev]"
+    pip install --no-cache-dir -e ".[dev]"
 
 
 COPY . .
