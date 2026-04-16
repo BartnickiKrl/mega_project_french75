@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letterbox Intersecter</title>
+    <link rel="stylesheet" href="{% static 'intersecter/home.css' %}">
+</head>
+<body>
+
+    <main class="dashboard">
+        <form action="" method="POST" class="app-container">
+            {% csrf_token %}
+            
+            <header class="main-header">
+                <h1>Letterboxd <span class="highlight">Intersecter</span></h1>
+            </header>
+
+            <div class="controls">
+                <button type="button" id="add-person" class="control-btn">Add User</button>
+                <button type="button" id="remove-person" class="control-btn remove">Remove User</button>
+            </div>
+
+            <section class="input-section">
+            <div class="fiszki-wrapper" id="fiszki-wrapper">
+                <div class="fiszka">
+                    <label>Letterboxd NickName</label>
+                    <input type="text" name="nickname[]" placeholder="Type here..." required>
+                </div>
+                <div class="fiszka">
+                    <label>Letterboxd NickName</label>
+                    <input type="text" name="nickname[]" placeholder="Type here..." required>
+                </div>
+            </div>
+
+                <div class="box-genre">
+                    <label>What kind of film you want to see?</label>
+                    <select name="genre" required>
+                        <option value="" disabled selected>Select Film Genre</option>
+                        <option value="random">Random</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="animation">Animation</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="crime">Crime</option>
+                        <option value="documentary">Documentary</option>
+                        <option value="drama">Drama</option>
+                        <option value="family">Family</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="history">History</option>
+                        <option value="horror">Horror</option>
+                        <option value="music">Music</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="science-fiction">Science Fiction</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="war">War</option>
+                        <option value="western">Western</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Match the best movie for today</button>
+                
+            </section>
+                <div class="box-poster" id="hide">
+                    <label>Title</label>
+                    <div class="poster-frame">
+                        <img src="https://via.placeholder.com/400x600?text=Movie+Poster" alt="Poster">
+                    </div>
+                </div>
+            </section>
+
+        </form>
+    </main>
+    <script src="{% static 'intersecter/home.js' %}"></script>
+</body>
+</html>

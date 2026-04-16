@@ -1,6 +1,10 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
-# Create your views here.
-def intersect(request):
-    return HttpResponse("<h1>INTERSECT</h1>")
+def home(request):
+    if request.method == "POST":
+        nicknames = request.POST.getlist('nickname[]')
+        genre = request.POST.get('genre')
+
+        print(f"{nicknames}, {genre}")
+    return render(request, 'intersecter/home.html')
