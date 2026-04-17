@@ -180,9 +180,9 @@ select {
 }
 
 .fiszka {
-    /* calc(33.33% - 10px) sprawia, że zmieszczą się dokładnie 3 w linii, 
+    /* calc(50% - 10px) sprawia, że zmieszczą się dokładnie 2 w linii, 
        uwzględniając odstępy (gap) */
-    flex: 1 1 calc(33.33% - 15px); 
+    flex: 1 1 calc(50% - 15px); 
     
     min-width: 200px; /* Zapobiega zbytniemu ściskaniu na telefonach */
     background: #2c3440;

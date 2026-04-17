@@ -1,7 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
-# Create your models here.
 
 class LetterboxdUsers(models.Model):
     NickName = models.CharField(max_length=25, primary_key=True)

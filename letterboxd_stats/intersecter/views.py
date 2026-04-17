@@ -8,7 +8,8 @@ def home(request):
 
         print(f"{nicknames}, {genre}")
         return render(request, 'intersecter/movie.html', {"title": "Poor Things",
-                                                         "year": "2023"})
+                                                         "year": "2023",
+                                                         "poster_url": "posters/PoorThings.jpg"})
     return render(request, 'intersecter/home.html')
 
 def movie(request):
@@ -16,5 +17,6 @@ def movie(request):
         genre = request.POST.get('genre')
         print(f"nowy gatunek {genre}")
         return render(request, 'intersecter/movie.html', {"title": "Michael Jackson",
-                                                           "year": "2026"})
+                                                           "year": "2026",
+                                                           "poster_url": "posters/MichaelJackson.jpg"})
     return render(request, 'intersecter/movie.html')

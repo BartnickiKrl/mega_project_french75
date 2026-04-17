@@ -13,13 +13,13 @@
     <main class="dashboard">
 
         <header class="main-header">
-            <h1>Letterboxd <span class="highlight">Intersecter</span></h1>
+            <h1>Letterboxd <a class="highlight" href="{% url 'intersect-home' %}">Intersecter</a></h1>
         </header>
 
             <div class="box-poster">
                 <label>Best film for today</label>
                 <div class="poster-frame">
-                    <img src="https://via.placeholder.com/400x600?text=Movie+Poster" alt="Poster">
+                    <img src="{{ MEDIA_URL }}{{ poster_url }}" alt="Poster">
                 </div>
                 <h1>{{ title }}, {{ year }}</h1>
             </div>

@@ -1,4 +1,4 @@
-const maxPeople = 12;
+const maxPeople = 10;
 const minPeople = 2;
 const container = document.getElementById('fiszki-wrapper');
 const addBtn = document.getElementById('add-person');
@@ -17,7 +17,7 @@ addBtn.addEventListener('click', () => {
         
         container.appendChild(newFiszka);
     } else {
-        alert("Maximum 12 users are allowed");
+        alert("Maximum 10 users are allowed");
     }
 });
 
