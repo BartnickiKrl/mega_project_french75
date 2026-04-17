@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 def home(request):
@@ -7,4 +7,12 @@ def home(request):
         genre = request.POST.get('genre')
 
         print(f"{nicknames}, {genre}")
+        return redirect('intersect-movie')
     return render(request, 'intersecter/home.html')
+
+def movie(request):
+    if request.method == "POST":
+        genre = request.POST.get('genre')
+
+        print(f"nowy gatunek {genre}")
+    return render(request, 'intersecter/movie.html')

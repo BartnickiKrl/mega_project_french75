@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letterbox Intersecter</title>
+    <link rel="stylesheet" href="{% static 'intersecter/base.css' %}">
+</head>
+<body>
+
+    <main class="dashboard">
+
+        <header class="main-header">
+            <h1>Letterboxd <span class="highlight">Intersecter</span></h1>
+        </header>
+
+        </section>
+            <div class="box-poster" id="hide">
+                <label>Title</label>
+                <div class="poster-frame">
+                    <img src="https://via.placeholder.com/400x600?text=Movie+Poster" alt="Poster">
+                </div>
+            </div>
+        </section>
+        <form action="" method="POST" class="app-container">
+            {% csrf_token %}
+            
+            <div class="box-genre">
+                <label>Change genre or try the same one again</label>
+                <select name="genre" required>
+                    <option value="" disabled selected>Select Film Genre</option>
+                    <option value="random">Random</option>
+                    <option value="action">Action</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="animation">Animation</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="crime">Crime</option>
+                    <option value="documentary">Documentary</option>
+                    <option value="drama">Drama</option>
+                    <option value="family">Family</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="history">History</option>
+                    <option value="horror">Horror</option>
+                    <option value="music">Music</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="romance">Romance</option>
+                    <option value="science-fiction">Science Fiction</option>
+                    <option value="thriller">Thriller</option>
+                    <option value="war">War</option>
+                    <option value="western">Western</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Reroll</button>
+                
+        </form>
+    </main>
+</body>
+</html>
