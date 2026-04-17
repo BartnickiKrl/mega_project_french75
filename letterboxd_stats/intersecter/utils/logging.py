@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 def get_logger(name: str, level: int = logging.INFO, log_dir: Path = Path("logs")):
@@ -9,8 +10,8 @@ def get_logger(name: str, level: int = logging.INFO, log_dir: Path = Path("logs"
         return logger
 
     logger.setLevel(level)
-
-    formatter = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
+    timestamp = datetime.now(ZoneInfo("Europe/Warsaw")).strftime("%H:%M:%S")
+    formatter = logging.Formatter(f"{timestamp} %(name)s - %(levelname)s - %(message)s")
 
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
@@ -18,9 +19,11 @@ def get_logger(name: str, level: int = logging.INFO, log_dir: Path = Path("logs"
     logger.addHandler(console_handler)
 
     Path(log_dir).mkdir(exist_ok=True)
-    timestamp = datetime.now().strftime("%d-%m-%Y")
+    datestamp = datetime.now(ZoneInfo("Europe/Warsaw")).strftime("%d-%m-%Y")
+
+
     file_handler = logging.FileHandler(
-        f"{log_dir}/app_{timestamp}.log", encoding="utf-8"
+        f"{log_dir}/app_{datestamp}.log", encoding="utf-8"
     )
 
     file_handler.setLevel(logging.DEBUG)
