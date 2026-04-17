@@ -16,15 +16,14 @@
             <h1>Letterboxd <span class="highlight">Intersecter</span></h1>
         </header>
 
-        </section>
-            <div class="box-poster" id="hide">
-                <label>Title</label>
+            <div class="box-poster">
+                <label>Best film for today</label>
                 <div class="poster-frame">
                     <img src="https://via.placeholder.com/400x600?text=Movie+Poster" alt="Poster">
                 </div>
+                <h1>{{ title }}, {{ year }}</h1>
             </div>
-        </section>
-        <form action="" method="POST" class="app-container">
+        <form action="{% url 'intersect-movie' %}" method="POST" class="app-container">
             {% csrf_token %}
             
             <div class="box-genre">
