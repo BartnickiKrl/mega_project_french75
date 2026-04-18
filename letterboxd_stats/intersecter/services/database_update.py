@@ -7,31 +7,40 @@ from .scraper import LetterboxdClient
 from .TMDB_api import get_movie_info
 
 
+def fetch_user_watchlist(user):
+
+    client = LetterboxdClient()
+    r = client.fetch_watchlist(username=user, page=0)
+    pages = get_watchlist_len(r)
+    movies = get_titles(r)
+    if pages > 1:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            responses = list(executor.map(client.fetch_watchlist, [user]*pages, range(1, pages+1)))
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as extraction_executor:
+                list_of_titles = list(extraction_executor.map(get_titles, responses))
+
+        for titles in list_of_titles:
+                if titles:
+                        movies.extend(titles)
+    return user, movies
+
+
 @measure_time()
 def manage_scrapping(nicknames:list):
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as user_executor:
+        user_results = list(user_executor.map(fetch_user_watchlist, nicknames))
+
     movies = {}
-    x = []
-    for user in nicknames:
-        client = LetterboxdClient()
-        r = client.fetch_watchlist(username=user, page=0)
-        pages = get_watchlist_len(r)
-        films_first = get_titles(r)
-        if pages > 1:
-            with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-                responses = executor.map(client.fetch_watchlist, [user]*pages, \
-                                        range(1, pages+1))
-            films_titles = []
-            for r in responses:
-                films_titles += get_titles(r)
-            movies[user] = films_first + films_titles
-        else:
-            movies[user] = films_first
-        x.extend(movies[user])
+    all_titles = []
+    for user, films in user_results:
+        movies[user] = films
+        all_titles += films
 
-
-    titles_for_info = list(set(x)) # tylko unikalne wartości
+    titles_for_info = list(set(all_titles)) # tylko unikalne wartości
     movies_info = {}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=35) as executor:
         films_info = list(executor.map(get_movie_info, titles_for_info))
 
     for i in range(0, len(titles_for_info)):
