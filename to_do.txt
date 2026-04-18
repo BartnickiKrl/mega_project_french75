@@ -16,8 +16,18 @@
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+PRZED OPTYMALIZACJĄ MANAGEMNTU ZAPYTAŃ
 
 Test dla 1200 filmów łącznie na watchlistach dwóch nowych użytkowników
 Duration of executing save_to_database: 0.47182154655456543 s
 Duration of executing manage_scrapping: 97.61220240592957 s
+['ziggory', 'ligairi'], random
+
+
+
+PO OPTYMALIZACJI MANAGEMNTU ZAPYTAŃ
+
+Test dla 1200 filmów łącznie na watchlistach dwóch użytkowników
+Duration of executing save_to_database: 0.2174983024597168 s
+Duration of executing manage_scrapping: 14.451343536376953 s
 ['ziggory', 'ligairi'], random
