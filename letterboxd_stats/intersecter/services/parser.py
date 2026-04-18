@@ -15,24 +15,9 @@ def get_titles(r):
     soup = BeautifulSoup(html, "html.parser")
     poster_grid = soup.find("div", class_ = "poster-grid" )
     posters = poster_grid.find_all("div", class_ = "react-component" )
-    titles = [poster["data-item-full-display-name"] for poster in posters]
+    titles = [poster["data-item-full-display-name"].split(sep=" (")[0] for poster in posters]
 
     return titles
-def get_image(r,title:str):
-    html = r.text
-    soup = BeautifulSoup(html, "html.parser")
-    poster_grid = soup.find("div", class_ = "poster-grid" )
-    for poster in poster_grid:
-        poster["data-item-full-display-name"]
-
-
-
-
-
-
-
-
-
 
 
 
@@ -41,4 +26,4 @@ if __name__ == "__main__":
     client = LetterboxdClient()
     r = client.fetch_watchlist(username="majkelos3",page=0)
     get_watchlist_len(r)
-    get_titles(r)
+    print(get_titles(r))

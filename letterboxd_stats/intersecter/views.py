@@ -9,7 +9,7 @@ def home(request):
         print(f"{nicknames}, {genre}")
         return render(request, 'intersecter/movie.html', {"title": "Poor Things",
                                                          "year": "2023",
-                                                         "poster_url": "posters/PoorThings.jpg"})
+                                                         "poster_url": "https://image.tmdb.org/t/p/w500//sP27Qm4THyRZyHjHYMfIDtJP6YE.jpg"})
     return render(request, 'intersecter/home.html')
 
 def movie(request):
@@ -18,5 +18,5 @@ def movie(request):
         print(f"nowy gatunek {genre}")
         return render(request, 'intersecter/movie.html', {"title": "Michael Jackson",
                                                            "year": "2026",
-                                                           "poster_url": "posters/MichaelJackson.jpg"})
+                                                           "poster_url": "https://image.tmdb.org/t/p/w500//sP27Qm4THyRZyHjHYMfIDtJP6YE.jpg"})
     return render(request, 'intersecter/movie.html')
