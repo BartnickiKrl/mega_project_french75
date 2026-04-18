@@ -26,6 +26,7 @@ def manage_scrapping(nicknames:list):
     for i in range(0, len(titles_for_info)):
         movies_info[ titles_for_info[i] ] = films_info[i]
 
+    save_to_database(movies, movies_info)
 
 
 def save_to_database(movies, movies_info):
