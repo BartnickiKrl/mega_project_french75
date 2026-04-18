@@ -8,16 +8,29 @@ def get_watchlist_len(r):
     soup = BeautifulSoup(html, "html.parser")
     page_list = soup.find("div", class_="paginate-pages")
     number_of_pages = page_list.findChildren()[0].findChildren()[-1].get_text()
-    return number_of_pages
+    return int(number_of_pages)
 
 def get_titles(r):
     html = r.text
     soup = BeautifulSoup(html, "html.parser")
-    titles = soup.find_all("span", class_ = "frame-title" )
-    print(soup.find("li", class_ = "griditem"))
-    # print(f"len of titles: {len(titles)}")
-    # for title in titles:
-    #     print(title.string)
+    poster_grid = soup.find("div", class_ = "poster-grid" )
+    posters = poster_grid.find_all("div", class_ = "react-component" )
+    titles = [poster["data-item-full-display-name"] for poster in posters]
+
+    return titles
+def get_image(r,title:str):
+    html = r.text
+    soup = BeautifulSoup(html, "html.parser")
+    poster_grid = soup.find("div", class_ = "poster-grid" )
+    for poster in poster_grid:
+        poster["data-item-full-display-name"]
+
+
+
+
+
+
+
 
 
 
