@@ -2,7 +2,7 @@ import requests
 
 API_KEY = "f4ee279337d6012678be52531803c039"
 BASE_URL = "https://api.themoviedb.org/3"
-IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w1920"
+IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
 
 def get_movie_info(title):
 
