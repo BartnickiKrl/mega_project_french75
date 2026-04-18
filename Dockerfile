@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /workspaces/mega_project_french75/letterboxd_stats
+WORKDIR /app
 
 COPY pyproject.toml .
 
@@ -20,8 +20,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-WORKDIR /workspaces/mega_project_french75/letterboxd_stats
+WORKDIR /app/letterboxd_stats
 
 EXPOSE 8000
 
-CMD ["find", ".", "-maxdepth", "3", "-name", "manage.py"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
