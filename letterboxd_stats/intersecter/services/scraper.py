@@ -5,7 +5,6 @@ import cloudscraper
 import requests
 
 from ..utils.logging import get_logger
-from .decorator import measure_time
 
 logger = get_logger(name=__name__, level=logging.DEBUG, log_dir=Path("logs"))
 
@@ -52,50 +51,6 @@ class LetterboxdClient:
         return r
 
 
-if __name__ == "__main__":
-
-    film_requests_test = [
-        "/film/grave-of-the-fireflies/",
-        "/film/parasite/",
-        "/film/interstellar/",
-        "/film/fight-club/",
-        "/film/inception/",
-        "/film/the-godfather/",
-        "/film/the-godfather-part-ii/",
-        "/film/pulp-fiction/",
-        "/film/the-dark-knight/",
-        "/film/forrest-gump/",
-        "/film/shutter-island/",
-        "/film/the-matrix/",
-        "/film/se7en/",
-        "/film/whiplash/",
-        "/film/parasite-2019/",  # czasem alternatywne slugi
-        "/film/dune-2021/",
-        "/film/dune-part-two/",
-        "/film/spirited-away/",
-        "/film/your-name/",
-        "/film/oldboy/",
-        "/film/american-psycho/",
-        "/film/whiplash/",
-        "/film/its-a-wonderful-life/",
-        "/film/whiplash/",  # celowo duplikat
-        "/film/the-social-network/",
-        "/film/gladiator/",
-        "/film/whiplash/",
-        "/film/joker/",
-    ]
-
-    @measure_time()
-    def test_funtion():
-        client = LetterboxdClient()
-
-        MAX_WORKERS = 5
-        for i in range(14):
-            r = client.fetch_watchlist(username="majkelos3",page=i)
-            print(r.status_code)
-
-        # for film in film_requests_test:
-        #     client.fetch_film(title = film)
 
 
 
