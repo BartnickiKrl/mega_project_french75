@@ -22,7 +22,8 @@ def manage_scrapping(nicknames:list):
             for r in responses:
                 films_titles += get_titles(r)
             movies[user] = films_first + films_titles
-        else: movies[user] = films_first
+        else:
+            movies[user] = films_first
         # print(f"len movies[user] = {len(movies[user])}")
         # print(movies[user])
         x.extend(movies[user])
