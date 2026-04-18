@@ -10,4 +10,4 @@
 
 *. Dołączenie dekoratora timer do views i składowych funkcji żeby optymalizować
 *. Dodanie paska ukończenia Intersecterowania
-comit
+comit 2
