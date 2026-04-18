@@ -18,6 +18,7 @@ dependencies = [
     "numpy",
     "requests",
     "beautifulsoup4",
+    "cloudscraper",
 ]
 [project.optional-dependencies]
 dev = [
