@@ -99,7 +99,7 @@ def save_to_database(movies_users, movies_info):
         "Action", "Adventure", "Animation", "Comedy", "Crime",
         "Documentary", "Drama", "Family", "Fantasy", "History",
         "Horror", "Music", "Mystery", "Romance", "Science Fiction",
-        "Thriller", "War", "Western"
+        "Thriller", "TV Movie", "War", "Western"
     ]
 
     genre_obj = [Genres(Name=name) for name in genre_names]
@@ -113,8 +113,7 @@ def save_to_database(movies_users, movies_info):
         m_id = movie_id_map.get(title)
         if m_id:
             for g_name in info.get("genres", []):
-                    if g_name not in genre_names:
-                        _ = Genres.objects.get_or_create(Name=g_name)
+                    if g_name not in genre_names: g_name = "Drama"
                     relations.append(GenreMovieRelation(movies_id=m_id, genres_id=g_name))
     GenreMovieRelation.objects.bulk_create(relations, ignore_conflicts=True)
 
