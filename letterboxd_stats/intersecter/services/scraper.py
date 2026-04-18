@@ -25,7 +25,7 @@ class LetterboxdClient:
         })
         # LetterboxdClient.__instances_count += 1
     #@measure_time("ms")
-    def fetch_watchlist(self, username: str,retries = 3,page = 0):
+    def fetch_watchlist(self, username: str,page: int,retries = 3):
         for i in range(retries):
             url = self.BASE_URL + username + r"/watchlist/"
             if page > 0:
