@@ -20,6 +20,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
+WORKDIR /workspaces/mega_project_french75/letterboxd_stats
+
 EXPOSE 8000
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
