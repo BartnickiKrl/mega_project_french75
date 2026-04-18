@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
         # for film in film_requests_test:
         #     client.fetch_film(title = film)
-test_funtion()
+
 
 
 
