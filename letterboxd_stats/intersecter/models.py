@@ -17,9 +17,7 @@ class Movies(models.Model):
 
 
 class Genres(models.Model):
-    #genre id is created on its own
-    Name = models.CharField(max_length=30)
+    Name = models.CharField(max_length=30, primary_key=True)
 
 class Directors(models.Model):
-    #director id is created on its own
-    Name = models.CharField(max_length=60)
+    Name = models.CharField(max_length=60, primary_key=True)

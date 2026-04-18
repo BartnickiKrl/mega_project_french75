@@ -10,3 +10,14 @@
 
 *. Dołączenie dekoratora timer do views i składowych funkcji żeby optymalizować
 *. Dodanie paska ukończenia Intersecterowania
+
+*. Niektóre konta mają customowe linki np. Aukai Ligairi, Toe'umu
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Test dla 1200 filmów łącznie na watchlistach dwóch nowych użytkowników
+Duration of executing save_to_database: 0.47182154655456543 s
+Duration of executing manage_scrapping: 97.61220240592957 s
+['ziggory', 'ligairi'], random

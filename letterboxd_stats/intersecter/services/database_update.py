@@ -1,11 +1,13 @@
 import concurrent.futures
 
 from ..models import Directors, Genres, LetterboxdUsers, Movies
+from .decorator import measure_time
 from .parser import get_titles, get_watchlist_len
 from .scraper import LetterboxdClient
 from .TMDB_api import get_movie_info
 
 
+@measure_time()
 def manage_scrapping(nicknames:list):
     movies = {}
     x = []
@@ -38,31 +40,100 @@ def manage_scrapping(nicknames:list):
     save_to_database(movies, movies_info)
 
 
-def save_to_database(movies, movies_info):
-    for nickname, film_titles in movies.items():
-        user, _ = LetterboxdUsers.objects.get_or_create(NickName=nickname)
 
-        for film_key in film_titles:
-            info = movies_info.get(film_key) #bezpieczniejsze gdy nie ma takiego klucza
-            if not info:
-                continue
+@measure_time()
+def save_to_database(movies_users, movies_info):
 
-            movie, created = Movies.objects.get_or_create(
-                Title=info["title"],
-                Year=info["year"]
+    # DODANIE WSZYSTKICH NOWYCH FILMÓW
+    existing_movie_obj = {m.Title: m for m in Movies.objects.all()}
+    new_movie_obj = []
+
+    movies_info = {
+        key: info for key, info in movies_info.items() if info != 'Nie znaleziono filmu.'}
+
+    for _, info in movies_info.items():
+        title = info["title"]
+        year = info["year"] if info["year"].isdigit() else 1900
+
+        if title not in existing_movie_obj:
+            movie_obj = Movies(Title=title, Year=year)
+            new_movie_obj.append(movie_obj)
+            existing_movie_obj[title] = movie_obj
+
+    Movies.objects.bulk_create(new_movie_obj, ignore_conflicts=True)
+
+
+    #DODANIE WSZYSTKICH NOWYCH UZYTKOWNIKÓW
+    existing_users_obj = {u.NickName: u for u in LetterboxdUsers.objects.all()}
+    new_users_obj = []
+
+    for nickname, _ in movies_users.items():
+        user_obj = LetterboxdUsers(NickName=nickname)
+        if nickname not in existing_users_obj:
+            new_users_obj.append(user_obj)
+
+    LetterboxdUsers.objects.bulk_create(new_users_obj, ignore_conflicts=True)
+
+
+    #ZEBRANIE ID Z DODANYCH FILMÓW (ID USERA TO NICKNAME)
+    titles_to_get = list(movies_info.keys())
+    movie_id_map = dict(
+        Movies.objects.filter(Title__in=titles_to_get).values_list('Title', 'id'))
+
+    #DODANIE RELACJI MIĘDZY UŻYTKOWNIKAMI A FILMAMI
+    UserMovieRelation = LetterboxdUsers.MovieID.through
+    relations = []
+
+    for nickname, titles in movies_users.items():
+        for t in titles:
+            m_id = movie_id_map.get(t)
+            if m_id:
+                relations.append(
+                    UserMovieRelation(letterboxdusers_id=nickname, movies_id=m_id)
+                )
+    UserMovieRelation.objects.bulk_create(relations, ignore_conflicts=True)
+
+
+    #DODANIE WSZYSTKICH GATUNKÓW
+    genre_names = [
+        "Action", "Adventure", "Animation", "Comedy", "Crime",
+        "Documentary", "Drama", "Family", "Fantasy", "History",
+        "Horror", "Music", "Mystery", "Romance", "Science Fiction",
+        "Thriller", "War", "Western"
+    ]
+
+    genre_obj = [Genres(Name=name) for name in genre_names]
+    Genres.objects.bulk_create(genre_obj, ignore_conflicts=True)
+
+    #DODANIE RELACJI MIĘDZY FILMAMI A GATUNKAMI
+    GenreMovieRelation = Movies.GenreID.through
+    relations = []
+
+    for title, info in movies_info.items():
+        m_id = movie_id_map.get(title)
+        if m_id:
+            for g_name in info.get("genres", []):
+                    if g_name not in genre_names:
+                        _ = Genres.objects.get_or_create(Name=g_name)
+                    relations.append(GenreMovieRelation(movies_id=m_id, genres_id=g_name))
+    GenreMovieRelation.objects.bulk_create(relations, ignore_conflicts=True)
+
+
+    #DODANIE REŻYSERÓW I RELACJI Z NIMI
+    director_names = set(info["director"] for info in movies_info.values() if info.get("director"))
+    director_obj = [Directors(Name=name) for name in director_names]
+    Directors.objects.bulk_create(director_obj, ignore_conflicts=True)
+
+    DirectorMovieRelation = Movies.DirectorID.through
+    relations = []
+
+    for title, info in movies_info.items():
+        m_id = movie_id_map.get(title)
+        if m_id:
+            relations.append(
+                DirectorMovieRelation(directors_id=info["director"], movies_id=m_id)
             )
-
-            if created:
-                for g_name in info.get("genres", []):
-                    genre, _ = Genres.objects.get_or_create(Name=g_name)
-                    movie.GenreID.add(genre)
-
-                d_name = info.get("director")
-                if d_name:
-                    director, _ = Directors.objects.get_or_create(Name=d_name)
-                    movie.DirectorID.add(director)
-
-            user.MovieID.add(movie)
+    DirectorMovieRelation.objects.bulk_create(relations, ignore_conflicts=True)
 
 
 if __name__=="__main__":
