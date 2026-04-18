@@ -32,7 +32,6 @@ def get_movie_info(title):
         "gatunki": genres,
         "rezyser": director }
 
-import requests
 
 API_KEY = "f4ee279337d6012678be52531803c039"
 BASE_URL = "https://api.themoviedb.org/3"
@@ -61,10 +60,10 @@ def get_movie_info(title):
                      if person['job'] == 'Director'), "Nieznany")
 
     return {
-        "tytul": title_full,
-        "rok": year,
-        "gatunki": genres,
-        "rezyser": director
+        "title": title_full,
+        "year": year,
+        "genres": genres,
+        "director": director
     }
 
 def get_poster(title):
