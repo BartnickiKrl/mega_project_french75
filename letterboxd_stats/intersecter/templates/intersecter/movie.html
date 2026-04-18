@@ -23,7 +23,7 @@
                 </div>
                 <h1>{{ title }}, {{ year }}</h1>
             </div>
-        <form action="{% url 'intersect-movie' %}" method="POST" class="app-container">
+        <form action="{% url 'intersect-movie' %}" method="POST" class="app-container" onsubmit="return disableButton(this)">
             {% csrf_token %}
             
             <div class="box-genre">
@@ -51,7 +51,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="submit-btn">Reroll</button>
+            <button type="submit" class="submit-btn" id="submit-btn">Reroll</button>
                 
         </form>
     </main>

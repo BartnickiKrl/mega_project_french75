@@ -24,8 +24,6 @@ def manage_scrapping(nicknames:list):
             movies[user] = films_first + films_titles
         else:
             movies[user] = films_first
-        # print(f"len movies[user] = {len(movies[user])}")
-        # print(movies[user])
         x.extend(movies[user])
 
 
@@ -33,7 +31,7 @@ def manage_scrapping(nicknames:list):
     movies_info = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         films_info = list(executor.map(get_movie_info, titles_for_info))
-    print(films_info)
+
     for i in range(0, len(titles_for_info)):
         movies_info[ titles_for_info[i] ] = films_info[i]
 
@@ -45,7 +43,7 @@ def save_to_database(movies, movies_info):
         user, _ = LetterboxdUsers.objects.get_or_create(NickName=nickname)
 
         for film_key in film_titles:
-            info = movies_info.get(film_key) #szybsze niż wołanie słownika 4 razy
+            info = movies_info.get(film_key) #bezpieczniejsze gdy nie ma takiego klucza
             if not info:
                 continue
 

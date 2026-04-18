@@ -30,3 +30,22 @@ removeBtn.addEventListener('click', () => {
         alert("Minimum 2 users are required");
     }
 });
+
+function disableButton(form) {
+
+    if (form.checkValidity()) {
+        const btn = document.getElementById('submit-btn');
+        
+        // Blokada przycisku z lekkim opóźnieniem tylko wtedy, gdy dane są poprawne
+        setTimeout(function() {
+            btn.disabled = true;
+            btn.style.opacity = "0.5";
+            btn.style.cursor = "not-allowed";
+            btn.innerHTML = '<span class="loader"></span> Looking through your watchlists...';
+        }, 50);
+
+        return true; // Formularz zostanie wysłany
+    } else {
+        return false; 
+    }
+}
