@@ -59,7 +59,7 @@ def save_to_database(movies, movies_info):
                 director, _ = Directors.objects.get_or_create(Name=director_name)
                 movie.DirectorID.add(director)
 
-        user.MovieID.add(movie)
+            user.MovieID.add(movie)
 
 if __name__=="__main__":
     pass
