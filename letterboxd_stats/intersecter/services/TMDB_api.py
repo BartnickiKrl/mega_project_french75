@@ -14,11 +14,9 @@ def get_movie_info(title):
 
     movie_id = search_res['results'][0]['id']
 
-
     detail_url = f"{BASE_URL}/movie/{movie_id}"
     detail_params = {"api_key": API_KEY, "append_to_response": "credits"}
     movie = requests.get(detail_url, params=detail_params).json()
-
 
     title_full = movie['title']
     genres = [g['name'] for g in movie['genres']]
@@ -29,5 +27,4 @@ def get_movie_info(title):
     return {
         "tytul": title_full,
         "gatunki": genres,
-        "rezyser": director
-    }
+        "rezyser": director }
