@@ -2,6 +2,7 @@ import logging
 from pathlib import Path
 
 import cloudscraper
+import requests
 
 from ..utils.logging import get_logger
 from .decorator import measure_time
@@ -13,7 +14,6 @@ class LetterboxdClient:
     # __instances_count = 0
     def __init__(self):
         self.session = cloudscraper.create_scraper()
-        self.last_status_code = 200
         self.session.headers.update({
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -25,32 +25,31 @@ class LetterboxdClient:
         })
         # LetterboxdClient.__instances_count += 1
     #@measure_time("ms")
-    def fetch_watchlist(self, username: str,retries = 3):
-        url = self.BASE_URL + username
-        r = self.session.get(url)
-        self.last_status_code = r.status_code
-        if self.last_status_code != 200:
-            logger.error(f"watchlist get request ended with code: {r.status_code} for user: {username}")
-            # raise RuntimeError #Zrobić lepszą obsługę wyjątków i klase wyj
-        logger.debug(f"sucessful watchlist get request for user: {username}")
+    def fetch_watchlist(self, username: str,retries = 3,page = 0):
+        for i in range(retries):
+            url = self.BASE_URL + username + r"/watchlist/"
+            if page > 0:
+                url += f"page/{page}/"
+            r = self.session.get(url)
+            if r.status_code == 200:
+                logger.debug(f"sucessful watchlist {page} get request for user: {username}")
+                return r
+            logger.error(f"watchlist page {page} get request ended with code: {r.status_code} for user: {username} link: {url}")
         return r
 
-    #@measure_time("ms")
-    def fetch_film(self,title: str,retries = 2):
+    def fetch_film(self,title: str):
         url = self.BASE_URL + title
-        r = self.session.get(url)
-        self.last_status_code = r.status_code
-        if self.last_status_code != 200:
+        # r = self.session.get(url)
+        r = requests.get(url,headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        })
+
+        if r.status_code != 200:
             logger.error(f"film get request ended with code: {r.status_code} for movie: {title}")
             # raise RuntimeError #Zrobić lepszą obsługę wyjątków i klase wyj
         logger.debug(f"sucessful film get request for film: {title}")
         return r
-    def reset_status_code(self):
-        self.last_status_code = 200
-
-
-    #cast jest w basehtml URL
-
 
 
 if __name__ == "__main__":
@@ -86,21 +85,17 @@ if __name__ == "__main__":
         "/film/joker/",
     ]
 
-    print(f"{len(film_requests_test)}")
-
     @measure_time()
     def test_funtion():
         client = LetterboxdClient()
-        client.fetch_watchlist(username="majkelos3")
-        MAX_WORKERS = 5
 
-        for film in film_requests_test:
-            client.fetch_film(title = film)
-            if(client.last_status_code != 200):
-                client.reset_status_code()
-                client_N = LetterboxdClient()
-                client_N.fetch_film(title=film)
-            # time.sleep(0.5)
+        MAX_WORKERS = 5
+        for i in range(14):
+            r = client.fetch_watchlist(username="majkelos3",page=i)
+            print(r.status_code)
+
+        # for film in film_requests_test:
+        #     client.fetch_film(title = film)
 test_funtion()
 
 

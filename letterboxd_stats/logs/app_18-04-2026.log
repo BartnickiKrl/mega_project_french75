@@ -1,0 +1,223 @@
+10:38:54 __main__ - DEBUG - sucessful watchlist get request for user: majkelos3
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/grave-of-the-fireflies/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/parasite/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/interstellar/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/fight-club/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/inception/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/the-godfather/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/the-godfather-part-ii/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/pulp-fiction/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/the-dark-knight/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/forrest-gump/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/shutter-island/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/the-matrix/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/se7en/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/whiplash/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/parasite-2019/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/dune-2021/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/dune-part-two/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/spirited-away/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/your-name/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/oldboy/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/american-psycho/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/whiplash/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/its-a-wonderful-life/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/whiplash/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/the-social-network/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/gladiator/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/whiplash/
+10:38:54 __main__ - DEBUG - sucessful film get request for film: /film/joker/
+11:06:47 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:06:47 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 0 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 0 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 0 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 1 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 1 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 1 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 2 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 2 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 2 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 3 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 3 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 3 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 4 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 4 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 4 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 5 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 5 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 5 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 6 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 6 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 6 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 7 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 7 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 7 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 8 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 8 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 8 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 9 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 9 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 9 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 10 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 10 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 10 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 11 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 11 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 11 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 12 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 12 get request ended with code: 400 for user: majkelos3
+11:07:19 __main__ - ERROR - watchlist page 12 get request ended with code: 400 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 0 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 1 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 2 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 3 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 4 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 5 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 6 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 7 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 8 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 9 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 10 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 11 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:08:58 __main__ - ERROR - watchlist page 12 get request ended with code: 403 for user: majkelos3
+11:10:28 __main__ - DEBUG - sucessful watchlist 0 get request for user: majkelos3
+11:10:28 __main__ - ERROR - watchlist page 1 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/1/
+11:10:28 __main__ - ERROR - watchlist page 1 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/1/
+11:10:28 __main__ - ERROR - watchlist page 1 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/1/
+11:10:28 __main__ - ERROR - watchlist page 2 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/2/
+11:10:28 __main__ - ERROR - watchlist page 2 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/2/
+11:10:28 __main__ - ERROR - watchlist page 2 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/2/
+11:10:28 __main__ - ERROR - watchlist page 3 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/3/
+11:10:28 __main__ - ERROR - watchlist page 3 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/3/
+11:10:28 __main__ - ERROR - watchlist page 3 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/3/
+11:10:28 __main__ - ERROR - watchlist page 4 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/4/
+11:10:28 __main__ - ERROR - watchlist page 4 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/4/
+11:10:28 __main__ - ERROR - watchlist page 4 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/4/
+11:10:28 __main__ - ERROR - watchlist page 5 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/5/
+11:10:28 __main__ - ERROR - watchlist page 5 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/5/
+11:10:28 __main__ - ERROR - watchlist page 5 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/5/
+11:10:28 __main__ - ERROR - watchlist page 6 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/6/
+11:10:28 __main__ - ERROR - watchlist page 6 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/6/
+11:10:28 __main__ - ERROR - watchlist page 6 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/6/
+11:10:28 __main__ - ERROR - watchlist page 7 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/7/
+11:10:28 __main__ - ERROR - watchlist page 7 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/7/
+11:10:28 __main__ - ERROR - watchlist page 7 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/7/
+11:10:28 __main__ - ERROR - watchlist page 8 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/8/
+11:10:28 __main__ - ERROR - watchlist page 8 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/8/
+11:10:28 __main__ - ERROR - watchlist page 8 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/8/
+11:10:28 __main__ - ERROR - watchlist page 9 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/9/
+11:10:28 __main__ - ERROR - watchlist page 9 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/9/
+11:10:28 __main__ - ERROR - watchlist page 9 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/9/
+11:10:28 __main__ - ERROR - watchlist page 10 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/10/
+11:10:28 __main__ - ERROR - watchlist page 10 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/10/
+11:10:28 __main__ - ERROR - watchlist page 10 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/10/
+11:10:28 __main__ - ERROR - watchlist page 11 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/11/
+11:10:28 __main__ - ERROR - watchlist page 11 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/11/
+11:10:28 __main__ - ERROR - watchlist page 11 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/11/
+11:10:28 __main__ - ERROR - watchlist page 12 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/12/
+11:10:28 __main__ - ERROR - watchlist page 12 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/12/
+11:10:28 __main__ - ERROR - watchlist page 12 get request ended with code: 404 for user: majkelos3 link: https://letterboxd.com/majkelos3/watchlistpage/12/
+11:11:07 __main__ - DEBUG - sucessful watchlist 0 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 1 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 2 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 3 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 4 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 5 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 6 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 7 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 8 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 9 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 10 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 11 get request for user: majkelos3
+11:11:07 __main__ - DEBUG - sucessful watchlist 12 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 0 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 1 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 2 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 3 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 4 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 5 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 6 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 7 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 8 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 9 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 10 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 11 get request for user: majkelos3
+11:11:34 __main__ - DEBUG - sucessful watchlist 12 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 0 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 1 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 2 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 3 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 4 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 5 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 6 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 7 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 8 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 9 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 10 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 11 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 12 get request for user: majkelos3
+11:12:04 __main__ - DEBUG - sucessful watchlist 13 get request for user: majkelos3
