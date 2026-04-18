@@ -22,9 +22,8 @@ def manage_scrapping(nicknames:list):
             for r in responses:
                 films_titles += get_titles(r)
             movies[user] = films_first + films_titles
-        else: movies[user] = films_first
-        # print(f"len movies[user] = {len(movies[user])}")
-        # print(movies[user])
+        else:
+            movies[user] = films_first
         x.extend(movies[user])
 
 
@@ -32,7 +31,7 @@ def manage_scrapping(nicknames:list):
     movies_info = {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         films_info = list(executor.map(get_movie_info, titles_for_info))
-    print(films_info)
+
     for i in range(0, len(titles_for_info)):
         movies_info[ titles_for_info[i] ] = films_info[i]
 
@@ -40,26 +39,31 @@ def manage_scrapping(nicknames:list):
 
 
 def save_to_database(movies, movies_info):
-    for key in movies:
-        user, _ = LetterboxdUsers.objects.get_or_create(NickName=key)
+    for nickname, film_titles in movies.items():
+        user, _ = LetterboxdUsers.objects.get_or_create(NickName=nickname)
 
-        for film in movies[key]:
-            #print(movies_info)
-            movie, exists = Movies.objects.get_or_create(
-                Title=movies_info[film]["title"],
-                Year=movies_info[film]["year"]
+        for film_key in film_titles:
+            info = movies_info.get(film_key) #bezpieczniejsze gdy nie ma takiego klucza
+            if not info:
+                continue
+
+            movie, created = Movies.objects.get_or_create(
+                Title=info["title"],
+                Year=info["year"]
             )
 
-            if not exists:
-                for g_name in movies_info[film]["genres"]:
+            if created:
+                for g_name in info.get("genres", []):
                     genre, _ = Genres.objects.get_or_create(Name=g_name)
-                    movie.GenreID.add(genre) # add() od razu zapisuje powiązanie w tabeli pośredniej
+                    movie.GenreID.add(genre)
 
-                director_name = movies_info[film]["director"]
-                director, _ = Directors.objects.get_or_create(Name=director_name)
-                movie.DirectorID.add(director)
+                d_name = info.get("director")
+                if d_name:
+                    director, _ = Directors.objects.get_or_create(Name=d_name)
+                    movie.DirectorID.add(director)
 
             user.MovieID.add(movie)
+
 
 if __name__=="__main__":
     pass
