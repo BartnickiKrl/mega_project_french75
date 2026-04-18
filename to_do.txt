@@ -1,0 +1,12 @@
+1. Zapisy do bazy danych żeby nie było relacji każdy z każdym
+2. Sprawdzenie poprawności nazw uzytkowników
+3. SQL - Intersecter.py
+
+    - Szukamy wybranego gatunku pośród filmów WSYSTKICH użytkowników
+        (a) dla RANDOM skipujmey ten krok
+    - (Wybór filmu z relacją do największej ilości użytkowników)
+        (a) Intersect
+        (b) Jak pusty to (MAX COUNT UserID)
+
+*. Dołączenie dekoratora timer do views i składowych funkcji żeby optymalizować
+*. Dodanie paska ukończenia Intersecterowania
