@@ -14,6 +14,10 @@
 *. Niektóre konta mają customowe linki np. Aukai Ligairi, Toe'umu
 
 
+
+                            BENCHMARKI:
+
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 PRZED OPTYMALIZACJĄ MANAGEMNTU ZAPYTAŃ
@@ -23,11 +27,79 @@ Duration of executing save_to_database: 0.47182154655456543 s
 Duration of executing manage_scrapping: 97.61220240592957 s
 ['ziggory', 'ligairi'], random
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 PO OPTYMALIZACJI MANAGEMNTU ZAPYTAŃ
 
-Test dla 1200 filmów łącznie na watchlistach dwóch użytkowników
-Duration of executing save_to_database: 0.2174983024597168 s
-Duration of executing manage_scrapping: 14.451343536376953 s
-['ziggory', 'ligairi'], random
+Test dla 1050 filmów - 2 użytkowników (550, 500)
+1
+    Duration of executing save_to_database: 0.394026517868042 s
+    Duration of executing manage_scrapping: 55.21097469329834 s
+    ['kurstboy', 'zoerosebryant'], random
+2
+    Duration of executing save_to_database: 0.16793441772460938 s
+    Duration of executing manage_scrapping: 18.310741186141968 s
+    ['kurstboy', 'zoerosebryant'], random
+3
+    Duration of executing save_to_database: 0.24191689491271973 s
+    Duration of executing manage_scrapping: 14.743577480316162 s
+    ['kurstboy', 'zoerosebryant'], random
+4
+    Duration of executing save_to_database: 0.24153685569763184 s
+    Duration of executing manage_scrapping: 13.877253293991089 s
+    ['kurstboy', 'zoerosebryant'], random
+
+
+Test dla 3050 filmów - 5 użytkowników (550, 750, 650, 150, 1000)
+1
+    Duration of executing save_to_database: 0.7088396549224854 s
+    Duration of executing manage_scrapping: 125.71827721595764 s
+    ['jay', 'georgecarmi', 'timtamtitus', 'carleythorne', 'framesofnick'], random
+2
+    Duration of executing save_to_database: 0.4127383232116699 s
+    Duration of executing manage_scrapping: 30.674907445907593 s
+    ['jay', 'georgecarmi', 'timtamtitus', 'carleythorne', 'framesofnick'], random
+3
+    Duration of executing save_to_database: 0.4343552589416504 s
+    Duration of executing manage_scrapping: 32.18056392669678 s
+    ['jay', 'georgecarmi', 'timtamtitus', 'carleythorne', 'framesofnick'], random
+4
+    Duration of executing save_to_database: 0.4202001094818115 s
+    Duration of executing manage_scrapping: 32.28299283981323 s
+    ['jay', 'georgecarmi', 'timtamtitus', 'carleythorne', 'framesofnick'], random
+
+
+Naprzemienny test dla 2700 filmów 5 użytkowników 
+grupa 1 = ['jonathanfujii': 411, 'sophiedarcy': 657, 'childrenofmen': 915, 'abigailwattx': 306, 'willhunting': 394]
+grupa 2 = ['henryspencerirl': 460, 'brat': 411, 'moviesrtherapy': 553, 'will_sloan': 895, 'ceryslovesfilm': 374]
+
+T1 - grupa 1
+    Duration of executing save_to_database: 0.5762820243835449 s
+    Duration of executing manage_scrapping: 78.35397028923035 s
+    ['jonathanfujii', 'sophiedarcy', 'childrenofmen', 'abigailwattx', 'willhunting'], random
+
+T2 - grupa 2
+    Duration of executing save_to_database: 0.8020901679992676 s
+    Duration of executing manage_scrapping: 85.15983009338379 s
+    ['henryspencerirl', 'brat', 'moviesrtherapy', 'will_sloan', 'ceryslovesfilm'], random
+
+T3 - grupa 1
+    Duration of executing save_to_database: 0.34844255447387695 s
+    Duration of executing manage_scrapping: 26.83939552307129 s
+    ['jonathanfujii', 'sophiedarcy', 'childrenofmen', 'abigailwattx', 'willhunting'], random
+
+T4 - grupa 2
+    Duration of executing save_to_database: 0.35889410972595215 s
+    Duration of executing manage_scrapping: 28.347092628479004 s
+    ['henryspencerirl', 'brat', 'moviesrtherapy', 'will_sloan', 'ceryslovesfilm'], random
+
+T5 - grupa 1
+    Duration of executing save_to_database: 0.34620094299316406 s
+    Duration of executing manage_scrapping: 24.3811616897583 s
+    ['jonathanfujii', 'sophiedarcy', 'childrenofmen', 'abigailwattx', 'willhunting'], random
+
+T6 - grupa 2
+    Duration of executing save_to_database: 0.43581318855285645 s
+    Duration of executing manage_scrapping: 25.431031942367554 s
+    ['henryspencerirl', 'brat', 'moviesrtherapy', 'will_sloan', 'ceryslovesfilm'], random
