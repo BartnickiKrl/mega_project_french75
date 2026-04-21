@@ -1,5 +1,6 @@
-1. Zapisy do bazy danych żeby nie było relacji każdy z każdym
+
 2. Sprawdzenie poprawności nazw uzytkowników
+
 3. SQL - Intersecter.py
 
     - Szukamy wybranego gatunku pośród filmów WSYSTKICH użytkowników
