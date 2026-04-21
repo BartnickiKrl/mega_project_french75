@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('',views.home,name='intersect-home'),
-    path('movie/',views.movie,name='intersect-movie')
+    path('movie/',views.movie,name='intersect-movie'),
+    path('deadend/',views.deadend,name='intersect-deadend')
 ]

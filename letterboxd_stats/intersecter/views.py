@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .models import *
 from .services.database_update import manage_scrapping
@@ -14,15 +14,16 @@ def home(request):
         genre = request.POST.get('genre')
         print(f"{nicknames}, {genre}")
 
-
+        # Zerowanie sesji
         if 'movies_already_found' in request.session:
             del request.session['movies_already_found']
+
         # Inicjalizacja słownika w sesji
         movies = request.session.get('movies_already_found', [])
 
         [title, year, director] = Intersect(nicknames, genre, movies)
-        if title == None and year is None and director is None:
-            pass
+        if title is None and year is None and director is None:
+            return redirect('intersect-deadend')
 
         movies.append(title)
 
@@ -30,7 +31,6 @@ def home(request):
         request.session['movies_already_found'] = movies
         request.session['last_nicknames'] = nicknames
 
-        #[title, year, director] = Intersect(nicknames, genre)
 
         print(f"{nicknames}, {genre}")
         return render(request, 'intersecter/movie.html', {
@@ -49,8 +49,8 @@ def movie(request):
         movies = request.session.get('movies_already_found', [])
 
         [title, year, director] = Intersect(nicknames, genre, movies)
-        if title == None and year is None and director is None:
-            pass
+        if title is None and year is None and director is None:
+            return redirect('intersect-deadend')
 
         movies.append(title)
 
@@ -73,7 +73,11 @@ def movie(request):
     return render(request, 'intersecter/movie.html')
 
 
+def deadend(request):
+    return render(request, 'intersecter/deadend.html')
 
+
+# Rozwiązanie z counterem
 
 # def home(request):
 #     if request.method == "POST":

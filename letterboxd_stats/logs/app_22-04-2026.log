@@ -1,0 +1,6 @@
+00:10:07 intersecter.services.scraper - DEBUG - sucessful watchlist 0 get request for user: Jacus_
+00:10:07 intersecter.services.scraper - DEBUG - sucessful watchlist 0 get request for user: Jacus_
+00:10:07 intersecter.services.scraper - ERROR - watchlist page 0 get request ended with code: 404 for user: sadasdsadad link: https://letterboxd.com/sadasdsadad/watchlist/
+00:10:07 intersecter.services.scraper - DEBUG - sucessful watchlist 0 get request for user: sadasdasd
+00:10:07 intersecter.services.scraper - ERROR - watchlist page 0 get request ended with code: 404 for user: sadasdsadad link: https://letterboxd.com/sadasdsadad/watchlist/
+00:10:07 intersecter.services.scraper - ERROR - watchlist page 0 get request ended with code: 404 for user: sadasdsadad link: https://letterboxd.com/sadasdsadad/watchlist/

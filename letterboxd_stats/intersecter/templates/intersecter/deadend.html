@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letterboxd Intersecter - The End</title>
+    <link rel="stylesheet" href="{% static 'intersecter/deadend.css' %}">
+</head>
+<body>
+
+<main class="dashboard">
+    <div class="credits-window">
+        <div class="scrolling-content">
+            <h2 class="empty-state-title">THE END</h2>
+            
+            <p class="empty-state-text">
+                Unfortunately, we have nothing to show you.<br>
+                You've reached the end of your watchlist.<br>
+                If nothing caught your eye, there's not much more we can do.<br>
+                Add more films or find new friends.<br>
+                You can start over once this text passes.
+            </p>
+            
+            <div class="credits-cast">
+                <p><span>Directed by</span> <strong>Letterboxd Intersecter</strong></p>
+                <p><span>Screenplay by</span> <strong>Your Watchlists</strong></p>
+                <p><span>Edited by</span> <strong>The French 75 group</strong></p>
+                <p><span>Production Design</span> <strong>The French 75 groups</strong></p>
+            </div>
+
+            <div class="special-thanks">
+                <p class="thanks-title">Special Thanks To</p>
+                <p class="special-thanks-item">Every Cinephile using this tool</p>
+                <p class="special-thanks-item">The Letterboxd Community</p>
+                <p class="special-thanks-item">And You, for watching until the very end</p>
+            </div>
+
+            <div class="credits-logos-card">
+                <div class="logo-row-top">
+                    <div class="logo-col"><img src="{% static 'intersecter/images/cannes.png' %}" class="credit-logo-img mpaa-img"></div>
+                    <div class="logo-col"><img src="{% static 'intersecter/images/letterboxd_2.png' %}" class="credit-logo-img dolby-img"></div>
+                    <div class="logo-col"><img src="{% static 'intersecter/images/advisory.png' %}"  class="credit-logo-img iatse-img"></div>
+                </div>
+                <div class="copyright-section">
+                    <p>copyright © mmxxvi The French 75.</p>
+                    <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-stay-container">
+            <header class="main-header final-header">
+                <h1>Letterboxd <a class="highlight" href="{% url 'intersect-home' %}">Intersecter</a></h1>
+            </header>
+            
+            <div class="delayed-button-container">
+                <a href="{% url 'intersect-home' %}" class="return-btn">Start Over</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

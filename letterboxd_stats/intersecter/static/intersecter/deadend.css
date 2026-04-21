@@ -1,0 +1,236 @@
+/* --- FUNDAMENTY --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #14181c;
+    font-family: 'Georgia', serif; 
+    color: #ffffff;
+    overflow: hidden; 
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.credits-window {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+/* --- ANIMACJA 1: TREŚĆ PRZEWIJANA (Zwolniona do 29s) --- */
+.scrolling-content {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    animation: moveUpContent 29s linear forwards;
+}
+
+@keyframes moveUpContent {
+    0% { top: 100vh; }
+    100% { top: -2400px; } 
+}
+
+/* --- ANIMACJA 2: NAGŁÓWEK (DELAY 19.9s) --- */
+.final-header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    z-index: 10;
+    animation: moveAndLockHeader 4.5s linear forwards;
+    animation-delay: 21s; 
+    top: 100vh;
+}
+
+@keyframes moveAndLockHeader {
+    0% { top: calc(100vh + 100px); }
+    100% { top: 42vh; }
+}
+
+/* --- ANIMACJA 3: PRZYCISK POWROTU (DELAY 23.9s) --- */
+.delayed-button-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(42vh + 140px); 
+    text-align: center;
+    opacity: 0;
+    animation: fadeInFinal 1.5s ease-out forwards;
+    animation-delay: 25s; 
+}
+
+@keyframes fadeInFinal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- STYLIZACJA ELEMENTÓW --- */
+
+.main-header h1 {
+    font-size: 3rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #9ab;
+    background-color: #14181c;
+    padding: 10px 0;
+    letter-spacing: -1px;
+    text-shadow: 0 0 15px rgba(153, 170, 187, 0.2);
+}
+
+.highlight {
+    color: #00e054;
+    text-decoration: none;
+}
+
+.empty-state-title {
+    font-size: 4.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 15px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 2px 2px 0px #444;
+}
+
+.empty-state-text {
+    color: #9ab;
+    font-size: 1.4rem;
+    line-height: 2;
+    margin-bottom: 200px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}
+
+/* Sekcja Cast: Rola (lewo) | Nazwisko (prawo) */
+.credits-cast {
+    margin-bottom: 180px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.credits-cast p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.credits-cast span {
+    color: #9ab;
+    text-align: right;
+    width: 45%;
+    font-weight: normal;
+}
+
+.credits-cast strong {
+    width: 45%;
+    text-align: left;
+    color: #00e054;
+}
+
+/* Sekcja Special Thanks */
+.special-thanks {
+    margin-bottom: 200px;
+    border-top: 1px solid rgba(153, 170, 187, 0.1);
+    border-bottom: 1px solid rgba(153, 170, 187, 0.1);
+    padding: 60px 0;
+}
+
+.thanks-title {
+    font-size: 1.2rem;
+    color: #9ab;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+
+.special-thanks p:not(.thanks-title) {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* Logotypy (Glow i filtry usunięte) */
+.credits-logos-card {
+    margin-bottom: 100px;
+    opacity: 1;
+}
+
+.logo-row-top {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.credit-logo-img {
+    /* Usunięto filtry, aby zachować oryginalny wygląd grafik */
+    display: block;
+}
+
+.mpaa-img { width: 100px; }
+.dolby-img { width: 120px; }
+.iatse-img { width: 50px; }
+
+.copyright-section p {
+    font-size: 0.8rem;
+    color: #456;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+/* Przycisk powrotu */
+.return-btn {
+    display: inline-block;
+    padding: 18px 50px;
+    border: 2px solid #00e054;
+    color: #00e054;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+}
+
+.return-btn:hover {
+    background-color: #00e054;
+    color: #14181c;
+    box-shadow: 0 0 20px rgba(0, 224, 84, 0.4);
+    transform: scale(1.05);
+}
+
+/* ZIARNO FILMU */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Grain.jpg');
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 9999;
+}
