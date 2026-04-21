@@ -1,16 +1,6 @@
 
-2. Sprawdzenie poprawności nazw uzytkowników
-
-3. SQL - Intersecter.py
-
-    - Szukamy wybranego gatunku pośród filmów WSYSTKICH użytkowników
-        (a) dla RANDOM skipujmey ten krok
-    - (Wybór filmu z relacją do największej ilości użytkowników)
-        (a) Intersect
-        (b) Jak pusty to (MAX COUNT UserID)
-
-*. Dołączenie dekoratora timer do views i składowych funkcji żeby optymalizować
-*. Dodanie paska ukończenia Intersecterowania
+1. Sprawdzenie poprawności nazw uzytkowników
+2. Zrobienie czegoś jak zwróci ["None", "None", "None"]
 
 *. Niektóre konta mają customowe linki np. Aukai Ligairi, Toe'umu
 
