@@ -1,6 +1,8 @@
+from os import getcwd
+
 from django.db import connection
 
-SQL_DIR = "files_sql/"
+SQL_DIR = getcwd()+"/intersecter/services/files_sql/"
 
 SQL_FILES = [
     SQL_DIR + "top_movie.sql"]

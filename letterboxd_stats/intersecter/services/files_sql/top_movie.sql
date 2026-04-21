@@ -11,13 +11,14 @@
 -- order by count(u.Name) desc
 -- Limit {n}
 
-select m.Title, m.Year, m.DirectorID
+select m.Title, m.Year, d.Name
 FROM intersecter_Movies m
 inner join intersecter_LetterboxdUsers u on u.MovieID = m.id
 INNER JOIN intersecter_Genres g ON m.GENREID = g.NAME
+inner join intersecter_Directors d on d.Name = m.DirectorID
 WHERE u.NickName in ({users_list}) and
 g.Name = {selected_genre} 
 group by m.Title, m.Year, m.DirectorID
 order by count(u.Name) desc
-Limit {n}
+Limit 1 OFFSET {n}
 
