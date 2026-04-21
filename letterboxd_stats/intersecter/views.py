@@ -11,7 +11,7 @@ from .services.TMDB_api import get_poster
 def home(request):
     if request.method == "POST":
         nicknames = request.POST.getlist('nickname[]')
-        asyncio.run(manage_scrapping(users=nicknames))
+        asyncio.run(manage_scrapping(users=["kurstboy","zoerosebryant"]))
         genre = request.POST.get('genre')
         first = Movies.objects.first()
 

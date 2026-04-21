@@ -4,27 +4,9 @@ import asyncio
 import aiohttp
 
 from ..models import Directors, Genres, LetterboxdUsers, Movies
-from .decorator import measure_time_async
+from .decorator import *
 from .scraper import *
 from .TMDB_api import get_movie_info
-
-# def fetch_user_watchlist(user):
-
-#     client = LetterboxdClient()
-#     r = client.fetch_watchlist(username=user, page=0)
-#     pages = get_watchlist_len(r)
-#     movies = get_titles(r)
-#     if pages > 1:
-#         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-#             responses = list(executor.map(client.fetch_watchlist, [user]*pages, range(1, pages+1)))
-
-#         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as extraction_executor:
-#                 list_of_titles = list(extraction_executor.map(get_titles, responses))
-
-#         for titles in list_of_titles:
-#                 if titles:
-#                         movies.extend(titles)
-#     return user, movies
 
 
 @measure_time_async
@@ -38,61 +20,40 @@ async def manage_scrapping(users:list):
             "Connection": "keep-alive",
             "Referer": "https://letterboxd.com/",
         }
-    semaphore = asyncio.Semaphore(50)
+    semaphore_web = asyncio.Semaphore(100)
+    semaphore_API = asyncio.Semaphore(35)
     async with aiohttp.ClientSession(headers = headers)  as session:
         movies_info={}
         #fetch watchlists równolegle
         watchlist_tasks = [
-            fetch_watchlist(session, user, semaphore)
+            fetch_watchlist(session, user, semaphore_web)
             for user in users
         ]
 
         watchlists = await asyncio.gather(*watchlist_tasks)
+        watchlists = {k: v for d in watchlists for k, v in d.items()}
+
         all_titles = []
-        for element in watchlists:
-            for titles in element.values():
-                all_titles.extend(titles)
-        unique_titles = set(all_titles)
+        for _,titles in watchlists.items():
+            all_titles.extend(titles)
+        unique_titles = list(set(all_titles))
 
         # get movie info równolegle
         movie_tasks = [
-            get_movie_info(session, title, semaphore)
+            get_movie_info(session, title, semaphore_API)
             for title in unique_titles
         ]
 
         results = await asyncio.gather(*movie_tasks)
         for i in range(0, len(unique_titles)):
-            movies_info[ all_titles[i] ] = results[i]
+            movies_info[ unique_titles[i] ] = results[i]
+
     # uruchom osobno
-    #await asyncio.to_thread(save_to_database, watchlists, movies_info)
+    await asyncio.to_thread(save_to_database, watchlists, movies_info)
 
     return movies_info
 
-
-
-
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=10) as user_executor:
-    #     user_results = list(user_executor.map(fetch_user_watchlist, nicknames))
-
-    # movies = {}
-    # all_titles = []
-    # for user, films in user_results:
-    #     movies[user] = films
-    #     all_titles += films
-
-    # titles_for_info = list(set(all_titles)) # tylko unikalne wartości
-    # movies_info = {}
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=35) as executor:
-    #     films_info = list(executor.map(get_movie_info, titles_for_info))
-
-    # for i in range(0, len(titles_for_info)):
-    #     movies_info[ titles_for_info[i] ] = films_info[i]
-
-    save_to_database(movies, movies_info)
-
-
-
-# @measure_time()
+@measure_time()
 def save_to_database(movies_users, movies_info):
 
     # DODANIE WSZYSTKICH NOWYCH FILMÓW
@@ -186,5 +147,8 @@ def save_to_database(movies_users, movies_info):
     DirectorMovieRelation.objects.bulk_create(relations, ignore_conflicts=True)
 
 
-if __name__=="__main__":
-    pass
+# if __name__=="__main__":
+#     nicknames = ["kurstboy","zoerosebryant"]
+#     for i in range(4):
+#         print(i+1)
+#         asyncio.run(manage_scrapping(users=nicknames))
