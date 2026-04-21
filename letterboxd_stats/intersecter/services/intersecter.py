@@ -22,7 +22,8 @@ def SQL_executor(sql_file:str, **sql_params):
 
 
 def Intersect(users, genre, counter=0):
-
+    users = ", ".join([f"'{u}'" for u in users])
+    genre = f"'{genre}'"
     the_movie = SQL_executor(SQL_FILES[0], users_list=users, n=counter, selected_genre=genre)
 
     return the_movie
