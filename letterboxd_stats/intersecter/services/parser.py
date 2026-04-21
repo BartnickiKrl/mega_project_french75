@@ -1,10 +1,8 @@
 from bs4 import BeautifulSoup
 
-from .scraper import LetterboxdClient
 
-
-def get_watchlist_len(r):
-    html = r.text
+def get_watchlist_len(html):
+    # html = r.text
     soup = BeautifulSoup(html, "html.parser")
     page_list = soup.find("div", class_="paginate-pages")
     if(page_list is None): return 1
@@ -12,8 +10,8 @@ def get_watchlist_len(r):
 
     return int(number_of_pages)
 
-def get_titles(r):
-    html = r.text
+def get_titles(html):
+    # html = r.text
     soup = BeautifulSoup(html, "html.parser")
     poster_grid = soup.find("div", class_ = "poster-grid" )
     posters = poster_grid.find_all("div", class_ = "react-component" )
@@ -23,9 +21,9 @@ def get_titles(r):
 
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
-    client = LetterboxdClient()
-    r = client.fetch_watchlist(username="majkelos3",page=0)
-    get_watchlist_len(r)
-    print(get_titles(r))
+#     client = LetterboxdClient()
+#     r = client.fetch_watchlist(username="majkelos3",page=0)
+#     get_watchlist_len(r)
+#     print(get_titles(r))
