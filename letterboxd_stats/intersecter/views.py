@@ -1,3 +1,6 @@
+
+import asyncio
+
 from django.shortcuts import redirect, render
 
 from .models import *
@@ -9,8 +12,7 @@ from .services.TMDB_api import get_poster
 def home(request):
     if request.method == "POST":
         nicknames = request.POST.getlist('nickname[]')
-        manage_scrapping(nicknames=nicknames)
-
+        asyncio.run(manage_scrapping(users=nicknames))
         genre = request.POST.get('genre')
         print(f"{nicknames}, {genre}")
 

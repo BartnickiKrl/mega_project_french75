@@ -16,3 +16,11 @@ def measure_time(unit="s"):
         return wrapper
 
     return dekorator
+
+def measure_time_async(func):
+    async def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = await func(*args, **kwargs)
+        print(f"{func.__name__}: {time.perf_counter() - start:.2f}s")
+        return result
+    return wrapper
