@@ -23,7 +23,7 @@ def home(request):
         # Inicjalizacja słownika w sesji
         movies = request.session.get('movies_already_found', [])
 
-        [title, year, director] = Intersect(nicknames, genre, movies)
+        [title, year, director, counts] = Intersect(nicknames, genre, movies)
         if title is None and year is None and director is None:
             return redirect('intersect-deadend')
 
@@ -39,7 +39,8 @@ def home(request):
             "title": title,
             "year": year,
             "director": director,
-            "poster_url": get_poster(title)
+            "poster_url": get_poster(title),
+            "counter":counts
         })
     return render(request, 'intersecter/home.html')
 
@@ -50,7 +51,7 @@ def movie(request):
         nicknames = request.session.get('last_nicknames', [])
         movies = request.session.get('movies_already_found', [])
 
-        [title, year, director] = Intersect(nicknames, genre, movies)
+        [title, year, director, counts] = Intersect(nicknames, genre, movies)
         if title is None and year is None and director is None:
             return redirect('intersect-deadend')
 
@@ -70,7 +71,8 @@ def movie(request):
             "year": year,
             "director": director,
             "poster_url": get_poster(title),
-            "genre": genre
+            "genre": genre,
+            "counter": counts
         })
     return render(request, 'intersecter/movie.html')
 

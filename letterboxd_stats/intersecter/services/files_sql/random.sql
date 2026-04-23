@@ -1,6 +1,6 @@
 
 
-select m.Title, m.Year, d.Name
+select m.Title, m.Year, d.Name, count(u.NickName)
 FROM intersecter_Movies as m
 inner join intersecter_letterboxdusers_movieid as um on um.movies_id = m.id
 inner join intersecter_LetterboxdUsers as u on u.NickName = um.letterboxdusers_id
@@ -11,5 +11,6 @@ inner join intersecter_Directors as d on d.Name = md.directors_id
 WHERE u.NickName in ({u_placeholders}) and
 m.Title not in ({m_placeholders})
 group by m.Title, m.Year, d.Name
+having count(u.NickName)>=2
 order by count(u.NickName) desc
 Limit 1 
