@@ -51,7 +51,7 @@ def Intersect(users, genre, movies=[]):
     if genre == 'random':
         the_movie = SQL_executor(SQL_FILES[1], [users, movies])
         if the_movie is None:
-            return [None,None,None]
+            return [None,None,None, None]
     else:
         the_movie = SQL_executor(SQL_FILES[0], [users, movies, [genre]])
         if the_movie is None:
