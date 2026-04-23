@@ -56,13 +56,13 @@ h2 {
 }
 
 .poster-frame {
-    position: relative; /* Baza dla kółka */
+    position: relative; 
     display: inline-block;
     max-width: 350px;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 25px;
-    overflow: visible;   /* Pozwala kółku wystawać poza krawędź */
+    overflow: visible;   
 }
 
 .poster-frame img {
@@ -76,34 +76,76 @@ h2 {
 /* --- ZIELONE KÓŁKO Z NUMERKIEM --- */
 .match-circle {
     position: absolute;
-    bottom: -15px;    /* Lekko wystaje poza dół */
-    right: -15px;     /* Lekko wystaje poza prawą stronę */
-    
+    bottom: -15px;    
+    right: -15px;     
     width: 75px;      
     height: 75px;
-    background: #00e054; 
     
-    color: #ffffff;      /* Biała cyfra */
-    font-weight: 800;    /* Bardzo gruba */
-    font-size: 2.2rem;   
+    /* Oryginalny, czysty zielony bez dodatkowych efektów */
+    background: #00e054; 
     
     border-radius: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     
-    border: 3px solid #2c3440; /* Cienka, estetyczna obwódka */
+    /* Odstęp między numerem a napisem */
+    gap: 4px; 
+    
+    /* Przesunięcie zawartości lekko do góry o "pół numerka" */
+    padding-bottom: 8px; 
+
+    /* Czysta, ciemna ramka oddzielająca kółko od plakatu */
+    border: 3px solid #2c3440; 
+    
+    /* Standardowy cień dla głębi, ale bez poświaty (glow) */
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    
     z-index: 10;
-    line-height: 1;
+    line-height: 1; 
 }
 
-/* --- FORMULARZ I WYBÓR GATUNKU --- */
-.box-genre {
-    background: #2c3440;
-    padding: 25px;
-    border-radius: 12px;
+/* Czysty biały numer bez żadnych cieni i borderów */
+.match-num {
+    font-weight: 900;
+    font-size: 2.1rem; 
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Czysty biały napis bez żadnych cieni i borderów */
+.match-text {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- UKŁAD FISZEK I INPUTY --- */
+.fiszki-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 20px;
+}
+
+.fiszka {
+    flex: 1 1 calc(50% - 15px);
+    min-width: 220px;
+    background: #2c3440;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #00e054;
+    transition: background 0.2s;
+}
+
+.fiszka:hover {
+    background: #323a45;
 }
 
 label {
@@ -116,6 +158,60 @@ label {
     letter-spacing: 1px;
 }
 
+input[type="text"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #456;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-bottom-color: #00e054;
+}
+
+/* --- PRZYCISKI STERUJĄCE (+ / -) --- */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.control-btn {
+    flex: 1;
+    padding: 12px;
+    background: #2c3440;
+    border: 1px solid #456;
+    color: #9ab;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: #3a4450;
+    color: #fff;
+    border-color: #9ab;
+}
+
+.control-btn.remove:hover {
+    color: #ff4b4b;
+    border-color: #ff4b4b;
+}
+
+/* --- GATUNEK I PRZYCISK GŁÓWNY --- */
+.box-genre {
+    background: #2c3440;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
 select {
     width: 100%;
     background: #14181c;
@@ -126,10 +222,6 @@ select {
     font-size: 1rem;
     cursor: pointer;
     outline: none;
-}
-
-select:focus {
-    border-color: #00e054;
 }
 
 .submit-btn {
@@ -155,43 +247,6 @@ select:focus {
     transform: scale(0.98);
 }
 
-/* --- DYNAMICZNE FISZKI UŻYTKOWNIKÓW --- */
-.fiszki-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.fiszka {
-    flex: 1 1 calc(50% - 15px);
-    min-width: 220px;
-    background: #2c3440;
-    padding: 20px;
-    border-radius: 12px;
-    border-left: 4px solid #00e054;
-    transition: background 0.2s;
-}
-
-.fiszka:hover {
-    background: #323a45;
-}
-
-input[type="text"] {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #456;
-    color: #fff;
-    font-size: 1.1rem;
-    padding: 5px 0;
-    outline: none;
-}
-
-input[type="text"]:focus {
-    border-bottom-color: #00e054;
-}
-
 /* --- ANIMACJA ŁADOWANIA --- */
 .loader {
     width: 15px;
@@ -209,13 +264,7 @@ input[type="text"]:focus {
     100% { transform: rotate(360deg); }
 }
 
-/* --- RESPONSYWNOŚĆ (RWD) --- */
-@media (max-width: 768px) {
-    .fiszka {
-        flex: 1 1 calc(50% - 15px);
-    }
-}
-
+/* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 480px) {
     .fiszka {
         flex: 1 1 100%;
