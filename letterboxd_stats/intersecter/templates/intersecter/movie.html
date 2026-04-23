@@ -16,17 +16,17 @@
             <h1>Letterboxd <a class="highlight" href="{% url 'intersect-home' %}">Intersecter</a></h1>
         </header>
 
-            <div class="box-poster">
-                <label>Best film for today</label>
-                <div class="poster-frame">
-                    <img src="{{ poster_url }}" alt="Poster">
+        <div class="box-poster">
+            <label>Best film for today</label>
+            <div class="poster-frame">
+                <div class="match-circle">
+                    {{ counter }}
                 </div>
-                <h1>{{ title }}, {{ year }}</h1>
-                <div class="match-info">
-                    <span class="highlight">**{{ counter }}**</span> matches
-                </div>
-                <h2>{{ director }}</h2>
+                <img src="{{ poster_url }}" alt="Poster">
             </div>
+            <h1>{{ title }}, {{ year }}</h1>
+            <h2>{{ director }}</h2>
+        </div>
 
         <form action="{% url 'intersect-movie' %}" method="POST" class="app-container" onsubmit="return disableButton(this)">
             {% csrf_token %}
