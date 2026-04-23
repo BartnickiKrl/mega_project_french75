@@ -11,6 +11,6 @@ inner join intersecter_Directors as d on d.Name = md.directors_id
 WHERE u.NickName in ({u_placeholders}) and
 m.Title not in ({m_placeholders})
 group by m.Title, m.Year, d.Name
-having count(DISTINCT u.NickName)>=2
+having count(DISTINCT u.NickName)>=%s
 order by count(DISTINCT u.NickName) desc
 Limit 1 
