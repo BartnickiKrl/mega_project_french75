@@ -13,7 +13,7 @@ WHERE u.NickName in ({u_placeholders}) and
 m.Title not in ({m_placeholders}) and
 g.Name = %s
 group by m.Title, m.Year, d.Name
-having count(DISTINCT u.NickName)>=2
+having count(DISTINCT u.NickName)>=%s
 order by count(DISTINCT u.NickName) desc
 Limit 1 
 

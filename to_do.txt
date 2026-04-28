@@ -1,6 +1,5 @@
 
 1. Sprawdzenie poprawności nazw uzytkowników
-2. Zrobienie czegoś jak zwróci ["None", "None", "None"]
 
 *. Niektóre konta mają customowe linki np. Aukai Ligairi, Toe'umu
 

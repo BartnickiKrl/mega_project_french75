@@ -17,6 +17,11 @@ def SQL_executor(sql_file:str, params:list):
     with open(sql_file) as f:
         template = f.read()
 
+    count = 2
+    unique_users = set(params[0])
+    if len(unique_users)<2:
+        count = 1
+
     u_placeholders = ", ".join(["%s"] * len(params[0]))
     m_placeholders = "' '" if not params[1] else ", ".join(["%s"] * len(params[1]))
 
@@ -29,6 +34,7 @@ def SQL_executor(sql_file:str, params:list):
     # Przygotowujemy płaską listę parametrów dla cursor.execute
     # Kolejność musi być taka sama jak w SQL: users, potem movies, potem genre
     sql_params = [p for param in params for p in param]
+    sql_params.append(count)
 
 
     with connection.cursor() as cursor:
