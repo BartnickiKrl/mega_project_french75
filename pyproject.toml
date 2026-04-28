@@ -19,6 +19,7 @@ dependencies = [
     "requests",
     "beautifulsoup4",
     "aiohttp",
+    "uvicorn",
 ]
 [project.optional-dependencies]
 dev = [

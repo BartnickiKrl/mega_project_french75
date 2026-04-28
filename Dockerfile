@@ -14,9 +14,12 @@ WORKDIR /app
 
 COPY pyproject.toml .
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -e ".[dev]"
+# developers
+# RUN pip install --no-cache-dir --upgrade pip && \
+#     pip install --no-cache-dir -e ".[dev]"
 
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -e  .
 
 COPY . .
 
@@ -24,4 +27,5 @@ WORKDIR /app/letterboxd_stats
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:10000"]
+CMD ["sh", "-c", "uvicorn letterboxd_stats.asgi:application --host 0.0.0.0 --port ${PORT:-10000}"]
