@@ -1,9 +1,12 @@
 APP_DIR = letterboxd_stats
 
-.PHONY: run migrate shell
+.PHONY: run_dev run migrate shell
 
-run:
+run_dev:
 	cd $(APP_DIR) && python manage.py runserver
+	
+run:
+	cd $(APP_DIR) && uvicorn letterboxd_stats.asgi:application --reload
 
 migrate:
 	cd $(APP_DIR) && python manage.py makemigrations
