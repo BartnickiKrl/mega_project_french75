@@ -49,3 +49,19 @@ function disableButton(form) {
         return false; 
     }
 }
+
+setTimeout(function() {
+    let messages = document.querySelectorAll('.messages li');
+    
+    messages.forEach((msg, index) => {
+        // Dodajemy lekkie opóźnienie dla każdego kolejnego elementu (efekt kaskady)
+        setTimeout(() => {
+            msg.classList.add('hide');
+            
+            // Usuwamy element z DOM dopiero po zakończeniu animacji CSS
+            setTimeout(() => {
+                msg.remove();
+            }, 500); 
+        }, index * 200); // Pierwszy znika od razu, następny 200ms później
+    });
+}, 1400);

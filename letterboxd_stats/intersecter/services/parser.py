@@ -12,6 +12,8 @@ def get_watchlist_len(html):
 def get_titles(html):
     soup = BeautifulSoup(html, "html.parser")
     poster_grid = soup.find("div", class_ = "poster-grid" )
+    if poster_grid is None:
+        raise ValueError("Wrong usernames")
     posters = poster_grid.find_all("div", class_ = "react-component" )
     titles = [poster["data-item-full-display-name"].split(sep=" (")[0] for poster in posters]
 

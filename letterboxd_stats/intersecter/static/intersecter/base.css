@@ -277,3 +277,66 @@ select {
         right: -10px;
     }
 }
+/* Kontener na wiadomości */
+.messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%; /* Lepiej na urządzeniach mobilnych */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Styl pojedynczej wiadomości */
+.messages li {
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* Utrzymujemy wyśrodkowanie podczas animacji */
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+/* Kolory dla typu: error */
+.messages li.error {
+    background-color: #ff4d4d;
+    color: white;
+    border: none; /* Usunięto boczny pasek */
+}
+
+/* Kolory dla typu: success */
+.messages li.success {
+    background-color: #2ecc71;
+    color: white;
+    border: none; /* Usunięto boczny pasek */
+}
+
+.messages li.hide {
+    transform: translateY(-120%);
+    opacity: 0;
+    margin-top: -60px; /* Płynne zwijanie przestrzeni */
+    transition: transform 0.1s ease-in, opacity 0.5s ease-in, margin-top 0.5s ease-in;
+}
+
+/* Poprawiona animacja */
+@keyframes slideDown {
+    from {
+        transform: translateY(-120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

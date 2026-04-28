@@ -11,6 +11,13 @@
 <body>
 
     <main class="dashboard">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form action="" method="POST" class="app-container" onsubmit="return disableButton(this)">
             {% csrf_token %}
             

@@ -130,3 +130,7 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+from django.contrib.messages import constants as message_constants
+MESSAGE_LEVEL = message_constants.ERROR

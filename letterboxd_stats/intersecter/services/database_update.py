@@ -30,7 +30,11 @@ async def manage_scrapping(users:list):
             for user in users
         ]
 
-        watchlists = await asyncio.gather(*watchlist_tasks)
+        try:
+            watchlists = await asyncio.gather(*watchlist_tasks)
+        except ValueError as e:
+            raise
+
         watchlists = {k: v for d in watchlists for k, v in d.items()}
 
         all_titles = []

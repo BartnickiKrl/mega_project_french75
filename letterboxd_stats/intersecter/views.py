@@ -1,6 +1,7 @@
 
 import asyncio
 
+from django.contrib import messages
 from django.shortcuts import redirect, render
 
 from .models import *
@@ -12,7 +13,13 @@ from .services.TMDB_api import get_poster
 def home(request):
     if request.method == "POST":
         nicknames = request.POST.getlist('nickname[]')
-        asyncio.run(manage_scrapping(users=nicknames))
+
+        try:
+            asyncio.run(manage_scrapping(users=nicknames))
+        except ValueError as e:
+            messages.error(request, e)
+            return redirect('intersect-home')
+
         genre = request.POST.get('genre')
         print(f"{nicknames}, {genre}")
 
