@@ -1,6 +1,6 @@
+from asgiref.sync import async_to_sync
 
-import asyncio
-
+#import asyncio
 from django.contrib import messages
 from django.shortcuts import redirect, render
 
@@ -15,8 +15,9 @@ def home(request):
         nicknames = request.POST.getlist('nickname[]')
 
         try:
-            asyncio.run(manage_scrapping(users=nicknames))
+            async_to_sync(manage_scrapping)(users=nicknames)
         except ValueError as e:
+            #print(f"DEBUG: ZŁAPANO BŁĄD W VIEWS: {type(e)} - {e}")
             messages.error(request, e)
             return redirect('intersect-home')
 

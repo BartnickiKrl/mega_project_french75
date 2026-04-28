@@ -23,9 +23,25 @@ def measure_time_async(func):
 
         try:
             result = await func(*args, **kwargs)
-        except ValueError as e:
+        except ValueError:
             raise
 
         print(f"{func.__name__}: {time.perf_counter() - start:.2f}s")
         return result
     return wrapper
+
+#dekorator, który miał naprawic bledy po zastosowaniu async_to_sync
+# def measure_time_async(func):
+#     async def wrapper(*args, **kwargs):
+#         start = time.perf_counter()
+#         try:
+#             # Wykonaj funkcję i zapisz wynik
+#             result = await func(*args, **kwargs)
+#             return result
+#         # Nie łap konkretnych błędów, pozwól im lecieć do views.py
+#         finally:
+#             # To wykona się ZAWSZE, nawet jak funkcja padnie
+#             end = time.perf_counter()
+#             print(f"{func.__name__}: {end - start:.2f}s")
+
+#     return wrapper

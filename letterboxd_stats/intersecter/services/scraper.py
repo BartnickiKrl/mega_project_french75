@@ -18,12 +18,14 @@ async def fetch(session, url, semaphore):
 async def fetch_watchlist(session, user: str,semaphore):
         url = BASE_URL + user.lower() + r"/watchlist/"
         async with semaphore, session.get(url) as resp:
+            # if resp.status==404:
+            #      raise ValueError
             first_page = await resp.text()
 
         pages = get_watchlist_len(first_page)
         try:
             movies = get_titles(first_page)
-        except ValueError as e:
+        except ValueError:
             raise
 
         tasks = [fetch(session, f"{BASE_URL}{user}/watchlist/page/{p}/", semaphore) for p in range(2, pages + 1)]

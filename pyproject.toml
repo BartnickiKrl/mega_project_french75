@@ -20,6 +20,7 @@ dependencies = [
     "beautifulsoup4",
     "aiohttp",
     "uvicorn",
+    "whitenoise",
 ]
 [project.optional-dependencies]
 dev = [

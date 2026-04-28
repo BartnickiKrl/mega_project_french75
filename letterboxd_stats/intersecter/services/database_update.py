@@ -32,7 +32,8 @@ async def manage_scrapping(users:list):
 
         try:
             watchlists = await asyncio.gather(*watchlist_tasks)
-        except ValueError as e:
+        except ValueError:
+            #print(f"DEBUG: Złapałem błąd w manage_scrapping: {e}")
             raise
 
         watchlists = {k: v for d in watchlists for k, v in d.items()}
